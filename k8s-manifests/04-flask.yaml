@@ -8,7 +8,6 @@ spec:
   selector:
     matchLabels:
       app: flask-app
-# PDF Requirement: Restart pods if ConfigMap changes
   template:
     metadata:
       labels:
@@ -17,9 +16,18 @@ spec:
       serviceAccountName: clo835
       containers:
       - name: flask-app
-        
-        image: 381491880346.dkr.ecr.us-east-1.amazonaws.com/clo835-final-project
+        # Added :latest tag and quotes
+        image: "381491880346.dkr.ecr.us-east-1.amazonaws.com/clo835-final-project:latest"
         imagePullPolicy: Always
+        # --- ADDED FOR HPA BONUS ---
+        resources:
+          requests:
+            cpu: "250m"
+            memory: "256Mi"
+          limits:
+            cpu: "500m"
+            memory: "512Mi"
+        # ---------------------------
         ports:
         - containerPort: 81
         env:
