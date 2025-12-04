@@ -10,5 +10,5 @@ data:
   GROUP_NAME: "Group 8"
   
   S3_BUCKET: "clo835-group8-images-final" 
-  S3_IMAGE_KEY: "city.jpg"
+  S3_IMAGE_KEY: "mountain.jpg"
   AWS_REGION: "us-east-1"
